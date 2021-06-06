@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news,sources_news
+from .request import get_news,sources_news,search_news
 
 @app.route('/')
 # view function
@@ -24,3 +24,15 @@ def sources():
     message = "Tests"
     return render_template("sources.html", source = source,message = message)
 
+# Search for news feed
+@app.route('/search/<news_name>')
+def search(news_name):
+    '''
+    View function to display the search results
+    '''
+    news_name_list = news_name.split(" ")
+    news_name_format = "+".join(news_name_list)
+    searched_news = search_news(news_name_format)
+    title = f" Search results for {news_name}"
+    
+    return render_template("search.html", news = searched_news)
