@@ -1,9 +1,9 @@
-from flask import render_template,request,redirect,url_for
-from app import app
-from ..request import get_news,sources_news,search_news
+from flask import render_template, request, redirect, url_for
+from . import main
+from ..request import get_news, search_news, sources_news
 
-@app.route('/')
-# view function
+
+@main.route("/")
 def index():
     '''
     View root page function that returns the index page and its data
@@ -23,20 +23,7 @@ def index():
     return render_template("index.html", title = title, top=top_headlines)
 
 
-# Sources function and routes
-@app.route('/sources')
-def sources():
-    '''
-    View function to display sources of news
-    '''
-    source = sources_news()
-    title = f"{sources} news "
-    return render_template("sources.html", source = source)
-
-
-
-# Search for news feed
-@app.route('/search/<news_name>')
+@main.route("/search/<news_name>")
 def search(news_name):
     '''
     View function to display the search results
@@ -47,3 +34,13 @@ def search(news_name):
     title = f" Search results for {news_name}"
     
     return render_template("search.html", news = searched_news)
+
+@main.route("/sources")
+def sources():
+    '''
+    View function to display sources of news
+    '''
+    source = sources_news()
+    title = f"{sources} news "
+    
+    return render_template("sources.html", source = source)
