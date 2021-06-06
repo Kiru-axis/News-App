@@ -4,6 +4,10 @@
 <!-- Content Block-->
 {% block content%}
 <div class="container">
+<form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="news_query" >
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Submit" >Search</button>
+</form>
 
 <h3 class="text-center text-success"> Top News Headline </h3>     
         {{ macro.displayNewsList(top) }}
