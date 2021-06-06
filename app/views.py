@@ -1,15 +1,15 @@
 from flask import render_template
 from app import app
 
-# Views
 @app.route('/')
 # view function
 def index():
-
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    top_headlines = get_news("top-headlines")
+    title = "News from News Api"
+    return render_template('index.html',title = title,top = top_headlines)
 
 
 # Sources function and routes
