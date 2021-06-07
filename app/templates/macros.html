@@ -4,7 +4,7 @@
 <div class="row featurette">
     <div class="col-md-7 order-md-2">
         <h2 class="featurette-heading">
-            {{ new.title | truncate(50)}}  <small> published on {{ new.publishedAt}}</small>
+            {{ new.title | truncate(50)}}  <small> Posted on {{ new.publishedAt [:10]}}</small>
         </h2>
         <p class="lead"> {{ new.description }}</p>
         <a href="{{new.url}}" class="btn btn-primary" target="_blank">Find out more &raquo;</a>

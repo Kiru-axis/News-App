@@ -6,7 +6,7 @@ class Config:
     '''
     # We use the os.environ.get() function to get MOVIE_API_KEY and SECRET_KEY which we will set as environment variables.
     NEWS_API_BASE_URL = "https://newsapi.org/v2/{}?country=us&apiKey={}"
-    
+
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')    
 
 

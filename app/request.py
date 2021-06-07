@@ -70,7 +70,7 @@ def process_results(news_list):
 
 # ___________________________Source class__________________________________________________________________
 
-def sources_news():
+def sources_news(id):
     '''
     Function that gets the json response to our url request
     '''
